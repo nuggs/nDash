@@ -51,7 +51,7 @@ all: kernel ndash plugins
 plugins: sdl2 acplugin
 
 kernel: $(KERNEL_OBJS)
-	$(RM) $(LIB_DIR)kernel*
+	$(RM) $(LIB_DIR)kernel.dll
 	$(CXX) $(KERNEL_CFLAGS) -o $(LIB_DIR)kernel.dll $(KERNEL_OBJS) $(KERNEL_LFLAGS)
 
 $(KERNEL_ODIR)%.o: kernel/%.cpp
@@ -65,7 +65,7 @@ $(NDASH_ODIR)%.o: nDash/%.cpp
 	$(CXX) $(NDASH_CFLAGS) -c -o $@ $<
 
 sdl2: $(SDL2_OBJS)
-	$(RM) $(PLUGIN_DIR)SDL2*
+	$(RM) $(PLUGIN_DIR)SDL2.dll
 	$(CXX) $(PLUGIN_CFLAGS) -o $(PLUGIN_DIR)SDL2.dll $(SDL2_OBJS) $(PLUGIN_LFLAGS) -lSDL2
 
 $(SDL2_ODIR)%.o: sdl2/%.cpp

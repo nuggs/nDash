@@ -66,8 +66,8 @@ $(NDASH_ODIR)%.o: nDash/%.cpp
 	$(CXX) $(NDASH_CFLAGS) -c -o $@ $<
 
 sdl2: $(SDL2_OBJS)
-	$(RM) $(PLUGIN_DIR)SDL2*
-	$(CXX) $(PLUGIN_CFLAGS) -o $(PLUGIN_DIR)SDL2.dll $(SDL2_OBJS) $(PLUGIN_LFLAGS)
+	$(RM) $(PLUGIN_DIR)libSDL2.so
+	$(CXX) $(PLUGIN_CFLAGS) -o $(PLUGIN_DIR)libSDL2.so $(SDL2_OBJS) $(PLUGIN_LFLAGS)
 
 $(SDL2_ODIR)%.o: sdl2/%.cpp
 	$(CXX) $(PLUGIN_CFLAGS) -c -o $@ $<
@@ -86,4 +86,4 @@ mingw-clean:
 	@$(MAKE) -f Makefile.mingw clean
 
 clean:
-	$(RM) $(BIN_DIR)$(EXE) $(LIB_DIR)* $(PLUGIN_DIR)* $(NDASH_OBJS) $(KERNEL_OBJS) $(SDL2_OBJS)
+	$(RM) $(BIN_DIR)$(EXE) $(LIB_DIR)* $(PLUGIN_DIR)* $(NDASH_OBJS) $(KERNEL_OBJS) $(SDL2_OBJS) $(AC_OBJS)
