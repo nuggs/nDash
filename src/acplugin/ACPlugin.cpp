@@ -20,7 +20,6 @@
 #include <netinet/in.h>
 #include <unistd.h>
 #include <time.h>
-const int INVALID_SOCKET = -1;
 #endif
 
 using namespace std;
@@ -66,7 +65,7 @@ namespace nDash {
                 if (WSA.wVersion != 0x0202) return false;
 #endif
 
-                if ((sockfd = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP)) == (int)INVALID_SOCKET)
+                if ((sockfd = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP)) == SOCKET_ERROR)
                     return -1;
 
                 ServerAddr.sin_family = AF_INET;
