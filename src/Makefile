@@ -49,7 +49,7 @@ AC_SRC = acplugin/ACPlugin.cpp
 
 # Build the stuff
 all: kernel nDash plugins
-plugins: opengl acplugin
+plugins: sdl2 acplugin
 
 kernel: $(KERNEL_OBJS)
 	$(RM) $(LIB_DIR)libkernel.so
