@@ -20,6 +20,7 @@
 #include <netinet/in.h>
 #include <unistd.h>
 #include <time.h>
+const int SOCKET_ERROR = -1;
 #endif
 
 using namespace std;
@@ -49,7 +50,7 @@ namespace nDash {
                 WSACleanup();
 #elif defined(NDASH_LINUX)
                 close(sockfd);
-#endif      
+#endif
             }
 
             ACPLUGIN_API virtual const std::string &getName() const {
